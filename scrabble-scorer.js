@@ -63,7 +63,7 @@ let vowelBonusScorer = function(word){
 };
 
 let scrabbleScorer = function(word){
-   // convert word to lower case
+   // convert word to lower case //
 	word = word.toLowerCase();
 	let letterPoints = 0;
     
