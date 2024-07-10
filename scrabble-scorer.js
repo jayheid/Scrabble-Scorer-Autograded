@@ -38,7 +38,7 @@ function initialPrompt() {
    return word;
 };
 
-let newPointStructure;
+let newPointStructure = transform(oldPointStructure);
 
 let simpleScorer = function(word){
    // for each letter in word, return 1 point
@@ -62,7 +62,18 @@ let vowelBonusScorer = function(word){
    return pointCounter;
 };
 
-let scrabbleScorer;
+let scrabbleScorer = function(word){
+   // convert word to lower case
+	word = word.toLowerCase();
+	let letterPoints = 0;
+    
+   // for each letter in word, iterate by value for key in newPointStructure corresponding to letter
+    for (i in word){
+        letterPoints+=newPointStructure[word[i]];
+    }
+
+    return letterPoints;
+ };
 
 // create each object for scoringAlgorithms array
 let scoringAlgorithm1 = {
@@ -80,7 +91,7 @@ let scoringAlgorithm2 = {
 let scoringAlgorithm3 = {
    name: 'Scrabble',
    description: 'The traditional scoring algorithm.',
-   scorerFunction: oldScrabbleScorer
+   scorerFunction: scrabbleScorer
 };
 
 const scoringAlgorithms = [scoringAlgorithm1, scoringAlgorithm2, scoringAlgorithm3];
@@ -110,7 +121,22 @@ function scorerPrompt(word) {
 
 }
 
-function transform() {};
+function transform(obj) {    
+    // create new object
+    newObj = {};
+
+    for (key in obj){
+        for (value in obj[key]){
+            // Create variables to store new key (lower case letter)
+            // Create variable to store new value (key of current object converted to number)
+            newKey = obj[key][value].toLowerCase();
+            newValue = Number(key);
+            // Add new key/value pair to new object
+            newObj[newKey] = newValue;
+        }
+    }
+    return newObj
+};
 
 function runProgram() {
    let word = initialPrompt();
