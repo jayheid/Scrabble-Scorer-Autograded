@@ -33,7 +33,8 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   let word = input.question("Let's play some scrabble! Enter a word: ");
+   console.log("Let's play some Scrabble!\n");
+   let word = input.question("Enter a word to score: ");
    // console.log(oldScrabbleScorer(word)) // Task 1
    return word;
 };
@@ -100,9 +101,9 @@ function scorerPrompt(word) {
    let result;
 
    console.log("Which scoring algorithm would you like to use?\n");
-   console.log("0 - Simple One point per character\n");
-   console.log("1 - Vowel Bonus: Vowels are worth 3 points\n");
-   console.log("2 - Scrabble: Uses scrabble point system\n");
+   console.log("0 - Simple One point per character");
+   console.log("1 - Vowel Bonus: Vowels are worth 3 points");
+   console.log("2 - Scrabble: Uses scrabble point system");
    let algorithmSelection = input.question("Enter 0, 1, or 2: ");
    if (algorithmSelection == 0){
       // Simple scoring
