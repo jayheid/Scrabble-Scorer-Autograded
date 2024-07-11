@@ -43,6 +43,7 @@ let newPointStructure = transform(oldPointStructure);
 
 let simpleScorer = function(word){
    // for each letter in word, return 1 point
+   // should correspond to length of string
    return word.length
 };
 
@@ -76,26 +77,23 @@ let scrabbleScorer = function(word){
     return letterPoints;
  };
 
-// create each object for scoringAlgorithms array
-let scoringAlgorithm1 = {
-   name: 'Simple Score',
-   description: 'Each letter is worth 1 point.',
-   scorerFunction: simpleScorer
-};
-
-let scoringAlgorithm2 = {
-   name: 'Bonus Vowels',
-   description: 'Vowels are 3 pts, consonants are 1 pt.',
-   scorerFunction: vowelBonusScorer
-};
-
-let scoringAlgorithm3 = {
-   name: 'Scrabble',
-   description: 'The traditional scoring algorithm.',
-   scorerFunction: scrabbleScorer
-};
-
-const scoringAlgorithms = [scoringAlgorithm1, scoringAlgorithm2, scoringAlgorithm3];
+const scoringAlgorithms = [
+   {
+      name: 'Simple Score',
+      description: 'Each letter is worth 1 point.',
+      scorerFunction: simpleScorer
+   }, 
+   {
+      name: 'Bonus Vowels',
+      description: 'Vowels are 3 pts, consonants are 1 pt.',
+      scorerFunction: vowelBonusScorer
+   }, 
+   {
+      name: 'Scrabble',
+      description: 'The traditional scoring algorithm.',
+      scorerFunction: scrabbleScorer
+   }
+];
 
 function scorerPrompt(word) {
    let result;
@@ -111,11 +109,11 @@ function scorerPrompt(word) {
    }
    else if (algorithmSelection == 1) {
       // Vowel Bonus
-      result = scoringAlgorithms[1].scorerFunction(word)
+      result = scoringAlgorithms[1].scorerFunction(word);
    }
    else if (algorithmSelection == 2){
       // Scrabble
-      result = scoringAlgorithms[2].scorerFunction(word)
+      result = scoringAlgorithms[2].scorerFunction(word);
    }
 
    console.log(`Score for '${word}': ${result}`);
