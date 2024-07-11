@@ -101,9 +101,9 @@ function scorerPrompt(word) {
    let result;
 
    console.log("Which scoring algorithm would you like to use?\n");
-   console.log("0 - Simple One point per character");
-   console.log("1 - Vowel Bonus: Vowels are worth 3 points");
-   console.log("2 - Scrabble: Uses scrabble point system");
+   console.log(`0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description}`);
+   console.log(`1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}`);
+   console.log(`2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}`);
    let algorithmSelection = input.question("Enter 0, 1, or 2: ");
    if (algorithmSelection == 0){
       // Simple scoring
