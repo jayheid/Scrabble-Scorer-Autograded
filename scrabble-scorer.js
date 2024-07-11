@@ -84,7 +84,7 @@ let scoringAlgorithm1 = {
 };
 
 let scoringAlgorithm2 = {
-   name: 'Simple Score',
+   name: 'Bonus Vowels',
    description: 'Vowels are 3 pts, consonants are 1 pt.',
    scorerFunction: vowelBonusScorer
 };
