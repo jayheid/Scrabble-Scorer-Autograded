@@ -121,8 +121,8 @@ function scorerPrompt(word) {
 }
 
 function transform(obj) {    
-    // create new object
-    newObj = {};
+   // create new object
+   let newObj = {};
 
     for (key in obj){
         for (value in obj[key]){
