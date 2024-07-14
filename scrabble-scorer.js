@@ -99,9 +99,9 @@ function scorerPrompt(word) {
    let result;
 
    console.log("Which scoring algorithm would you like to use?\n");
-   console.log(`0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description}`);
-   console.log(`1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}`);
-   console.log(`2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}`);
+   for (let i = 0; i < scoringAlgorithms.length; i++){
+      console.log(`${i} - ${scoringAlgorithms[i].name}: ${scoringAlgorithms[i].description}`);
+   }
    let algorithmSelection = input.question("Enter 0, 1, or 2: ");
    if (algorithmSelection == 0){
       // Simple scoring
